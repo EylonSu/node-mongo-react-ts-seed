@@ -3,22 +3,19 @@ import express from "express";
 import session from "express-session";
 import bodyParser from "body-parser";
 import lusca from "lusca";
-import mongo from "connect-mongo";
 import path from "path";
 import mongoose from "mongoose";
 import passport from "passport";
-
-const MONGODB_URI = "";
-const MongoStore = mongo(session);
-
-// Controllers (route handlers)
-import * as userApi from "./routes/user";
+import bluebird from "bluebird";
+import clc from "cli-color";
+import routes from "./routes/routes";
 
 // Create Express server
 const app = express();
 
 // Connect to MongoDB
-const mongoUrl = MONGODB_URI;
+(<any>mongoose).Promise = bluebird;
+const mongoUrl = process.env.DB_CONN_STRING;
 mongoose
   .connect(
     mongoUrl,
@@ -31,7 +28,7 @@ mongoose
     console.log(
       "MongoDB connection error. Please make sure MongoDB is running. " + err
     );
-    // process.exit();
+    process.exit();
   });
 
 // Express configuration
@@ -42,21 +39,16 @@ app.use(
   session({
     resave: true,
     saveUninitialized: true,
-    secret: "SESSION_SECRET",
-    store: new MongoStore({
-      url: mongoUrl,
-      autoReconnect: true
-    })
+    secret: "SESSION_SECRET"
   })
 );
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(lusca.xframe("SAMEORIGIN"));
 app.use(lusca.xssProtection(true));
-app.use((req, res, next) => {
-  res.locals.user = req.user;
-  next();
-});
+
+// Controllers (route handlers)
+routes.setRoutes(app);
 
 app.use(
   express.static(path.join(__dirname, "public"), { maxAge: 31557600000 })
@@ -65,12 +57,13 @@ app.use(
 if (process.env.NODE_ENV === "development") {
   app.use(errorHandler());
 }
-const server = app.listen(app.get("port"), () => {
+
+app.listen(app.get("port"), () => {
   console.log(
-    `App is running at http://localhost:${app.get("port")} in ${app.get(
-      "env"
-    )} mode`
+    clc.white.bgGreen(
+      `App is running at http://localhost:${app.get("port")} in ${app.get(
+        "env"
+      )} mode`
+    )
   );
 });
-
-export default app;

@@ -9,13 +9,16 @@
   "author": "Eylon Sultan",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/server.js",
-    "dev": "npm run build && node --inspect=localhost:9229 dist/server.js",
+    "start": "node -r ts-node/register --inspect=localhost:9229 src/server.ts",
+    "dev": "node ./node_modules/nodemon/bin/nodemon.js",
     "build": "tsc && npm run copy-static-assets",
     "copy-static-assets": "ts-node copyStaticAssets.ts"
   },
   "dependencies": {
+    "@types/cli-color": "^0.3.29",
+    "bluebird": "^3.5.3",
     "body-parser": "^1.18.2",
+    "cli-color": "^1.4.0",
     "connect-mongo": "^2.0.0",
     "errorhandler": "^1.5.0",
     "express": "^4.16.2",
