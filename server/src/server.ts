@@ -6,7 +6,7 @@ import lusca from "lusca";
 import path from "path";
 import mongoose from "mongoose";
 import passport from "passport";
-import bluebird from "bluebird";
+import Bluebird from "bluebird";
 import clc from "cli-color";
 import routes from "./routes/routes";
 
@@ -14,15 +14,12 @@ import routes from "./routes/routes";
 const app = express();
 
 // Connect to MongoDB
-(<any>mongoose).Promise = bluebird;
+(<any>mongoose).Promise = Bluebird;
 const mongoUrl = process.env.DB_CONN_STRING;
 mongoose
-  .connect(
-    mongoUrl,
-    { useMongoClient: true }
-  )
+  .connect(mongoUrl)
   .then(() => {
-    /** ready to use. The `mongoose.connect()` promise resolves to undefined. */
+    console.log(clc.green(`mongo is connected successfully`));
   })
   .catch(err => {
     console.log(

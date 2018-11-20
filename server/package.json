@@ -9,7 +9,7 @@
   "author": "Eylon Sultan",
   "license": "MIT",
   "scripts": {
-    "start": "node -r ts-node/register --inspect=localhost:9229 src/server.ts",
+    "start": "node -r ts-node/register --inspect=localhost:5229 src/server.ts",
     "dev": "node ./node_modules/nodemon/bin/nodemon.js",
     "build": "tsc && npm run copy-static-assets",
     "copy-static-assets": "ts-node copyStaticAssets.ts"
@@ -25,9 +25,10 @@
     "express-session": "^1.15.6",
     "express-validator": "^4.3.0",
     "lusca": "^1.6.1",
-    "mongoose": "^4.13.11",
+    "mongoose": "^5.2.0",
     "passport": "^0.4.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "typegoose": "^5.4.1"
   },
   "devDependencies": {
     "@types/async": "^2.0.45",

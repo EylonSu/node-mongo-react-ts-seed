@@ -1,1 +1,2 @@
-concurrently "set DB_CONN_STRING=mongodb://localhost:27017/FSS" "npm run dev"
+set DB_CONN_STRING=mongodb://localhost:27017/fss
+npm run dev
