@@ -10,7 +10,7 @@ const routes = (app: Express) => {
       });
 
       await newUser.save();
-      
+
       res.json(newUser);
     } catch (err) {
       console.log("err", err);

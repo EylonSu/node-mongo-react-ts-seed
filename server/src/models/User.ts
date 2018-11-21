@@ -1,5 +1,5 @@
 import { prop, Typegoose, ModelType, InstanceType } from "typegoose";
-import mongoose from "mongoose";
+import Utils from "../Utils";
 
 class User extends Typegoose {
   @prop()
@@ -9,8 +9,6 @@ class User extends Typegoose {
   password: string;
 }
 
-const UserModel = new User().getModelForClass(User, {
-  existingMongoose: mongoose
-});
+const UserModel = Utils.MongoModelFactory(User);
 
 export default UserModel;
