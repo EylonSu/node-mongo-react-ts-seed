@@ -1,0 +1,26 @@
+{
+	"React new component": {
+		"prefix": "ccc",
+		"body": [
+		  "import * as React from \"react\";",
+		  "",
+		  "export interface I$1Props {_?:any}",
+		  "",
+		  "export interface I$1State {_?:any}",
+		  "",
+		  "class $1 extends React.Component<I$1Props, I$1State> {",
+		  "constructor(props: I$1Props) {",
+		  "super(props);",
+		  "this.state = {   };",
+		  "}",
+		  "",
+		  "public render() { ",
+		  "return ( <div>Hello $1</div> );",
+		  "}",
+		  "}",
+		  "",
+		  "export default $1;"
+		],
+		"description": "Rxjs subscribtion"
+	 }
+}
