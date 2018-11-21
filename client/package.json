@@ -1,15 +1,20 @@
 {
-  "name": "my-app",
+  "name": "whatsapp-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "node-sass-chokidar": "^1.3.4",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts-ts": "3.1.0"
+    "react-scripts-ts": "^4.0.8"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start": "npm-run-all -p watch-css start-ts",
+    "start-ts": "react-scripts-ts start",
+    "build": "npm-run-all -p build-css build-ts",
+    "build-ts": "react-scripts-ts build",
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
@@ -18,5 +23,11 @@
     "@types/react": "^16.7.6",
     "@types/react-dom": "^16.0.9",
     "typescript": "^3.1.6"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

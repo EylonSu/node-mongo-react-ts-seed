@@ -1,3 +1,7 @@
 {
-   "window.title": "FSS"
+  "window.title": "FSS",
+  "files.exclude": {
+    "**/*.css": true,
+    "**/node_modules": true
+  }
 }
