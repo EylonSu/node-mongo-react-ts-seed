@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import "./Header.scss";
 export interface IHeaderProps {
   _?: any;
 }
@@ -15,7 +15,7 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
   }
 
   public render() {
-    return <div>Hello Header</div>;
+    return <div className="header">Hello Header</div>;
   }
 }
 

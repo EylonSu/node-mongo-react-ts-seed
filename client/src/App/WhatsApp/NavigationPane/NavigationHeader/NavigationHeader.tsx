@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./NavigationHeader.scss";
 
 export interface INavigationHeaderProps {
   _?: any;
@@ -18,7 +19,7 @@ class NavigationHeader extends React.Component<
   }
 
   public render() {
-    return <div>Hello NavigationHeader</div>;
+    return <div className="navigation-header">Hello NavigationHeader</div>;
   }
 }
 

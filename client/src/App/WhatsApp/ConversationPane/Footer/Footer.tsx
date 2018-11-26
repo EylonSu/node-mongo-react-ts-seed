@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./Footer.scss";
 
 export interface IFooterProps {
   _?: any;
@@ -15,7 +16,7 @@ class Footer extends React.Component<IFooterProps, IFooterState> {
   }
 
   public render() {
-    return <div>Hello Footer</div>;
+    return <div className="footer">Hello Footer</div>;
   }
 }
 

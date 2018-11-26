@@ -1,7 +1,2 @@
-start mongod
-set DB_CONN_STRING=mongodb://localhost:27017/fss
-cd server
-start npm run dev
-cd ../client
-start npm start
+start console -t db -r "mongod" -t server -r "cd server & npm run dev" -t client -r "cd client & npm start"
 exit

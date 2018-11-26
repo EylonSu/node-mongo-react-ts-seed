@@ -15,7 +15,7 @@ const app = express();
 
 // Connect to MongoDB
 (<any>mongoose).Promise = Bluebird;
-const mongoUrl = process.env.DB_CONN_STRING;
+const mongoUrl = `mongodb://localhost:27017/fss`; // process.env.DB_CONN_STRING;
 mongoose
   .connect(mongoUrl)
   .then(() => {

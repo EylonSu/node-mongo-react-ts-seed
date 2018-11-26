@@ -1,0 +1,13 @@
+@import "./general.scss";
+
+.whatsapp {
+  height: 100%;
+  display: flex;
+  .conversation-pane {
+    flex: 0.7;
+  }
+
+  .navigation-pane {
+    flex: 0.3;
+  }
+}

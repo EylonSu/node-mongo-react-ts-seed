@@ -1,0 +1,7 @@
+.whatsapp {
+  height: 100%;
+  display: flex; }
+  .whatsapp .conversation-pane {
+    flex: 0.7; }
+  .whatsapp .navigation-pane {
+    flex: 0.3; }

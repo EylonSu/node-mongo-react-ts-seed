@@ -1,6 +1,5 @@
 import * as React from "react";
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
+import "./Conversation.scss";
 
 export interface IConversationProps {
   _?: any;
@@ -20,13 +19,7 @@ class Conversation extends React.Component<
   }
 
   public render() {
-    return (
-      <div>
-        <Header />
-        Hello Conversation
-        <Footer />
-      </div>
-    );
+    return <div className="conversation">Hello Conversation</div>;
   }
 }
 

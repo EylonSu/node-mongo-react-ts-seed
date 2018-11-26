@@ -1,6 +1,8 @@
 import * as React from "react";
 import ContactsList from "./ContactsList/ContactsList";
 import NavigationHeader from "./NavigationHeader/NavigationHeader";
+import "./NavigationPane.scss";
+import SearchBar from "./SearchBar/SearchBar";
 
 export interface INavigationPaneProps {
   _?: any;
@@ -21,9 +23,9 @@ class NavigationPane extends React.Component<
 
   public render() {
     return (
-      <div>
-        Hello NavigationPane
+      <div className="navigation-pane">
         <NavigationHeader />
+        <SearchBar />
         <ContactsList />
       </div>
     );
